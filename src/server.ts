@@ -37,7 +37,7 @@ import { Request, Response, NextFunction } from 'express';
     console.log(`Image URL: ${imgUrl}`);
     filterImageFromURL(imgUrl).then((result) => {
       console.log(`Result ${result}`);
-      res.sendFile(result, function (err) {
+      res.status(200).sendFile(result, function (err) {
         if (err) {
           console.log(`Send File ERR: ${err}`);
           next(err);
